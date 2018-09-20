@@ -46,3 +46,63 @@ vector<string> string_ex::split(const string &s, const string &seperator)
 	return result;
 }
 
+string& join(const vector<string> vecStr,const string seperator )
+{
+	size_t vec_size = vecStr.size();
+	string join_str;
+	for(size_t i=0;i<vec_size-1;i++)
+	{
+		join_str+=vecStr[i];
+		join_str+=seperator;
+	}
+	return join_str+vecStr[vec_size-1];
+}
+
+size_t findc(string &str, char c, size_t appear_count)
+{
+	if(appear_count==0)
+		return string::npos;
+	for (int i = 0; i < str.size(); i++)
+	{
+		if (str[i] == c)
+		{
+			appear_count--;
+			if(appear_count==0)
+			{
+				return i;
+			}
+		}
+	}
+	return string::npos;
+}
+
+
+size_t finds(string &str, string s, size_t appear_count)
+{
+	if(appear_count==0)
+		return string::npos;
+	size_t pos=0;
+	while(appear_count>0){
+		pos = str.find(s);
+		if(pos!=string::npos)
+		{
+			appear_count--;
+		}
+	}
+	return pos;
+}
+
+string &string_ex::snprintfex(char *format,size_t buff_size,...)
+{
+	assert(buff_size>0);
+	va_list va;
+	char *p_data=new char[buff_size+1];
+	if(p_data==NULL)
+		return string("");
+	va_start(va,buff_size);
+	snprintf(p_data,buff_size, format,va);
+	va_end(va);
+	string out_str(p_data);
+	delete p_data;
+	return out_str;
+}
