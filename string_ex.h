@@ -45,15 +45,13 @@ namespace string_ex{
 		return str;
 	}
 
+	string& join(const vector<string> vecStr,const string seperator );
 
-	size_t findc(string &str, const char c ,size_t appear_count=1);
-	size_t finds(string &str, const string s ,size_t appear_count=1);
+	size_t findc(string &str, char c, size_t appear_count);
 
-	//字符串数字互转
+	size_t finds(string &str, string s, size_t appear_count);
 
-	string& join(const vector<string> vecStr,const string seperator);
-
-    string &snprintfex(char *format,size_t buff_size,...);
-
+	string& snprintfex(char *format,size_t buff_size,...);
 }
+
 #endif

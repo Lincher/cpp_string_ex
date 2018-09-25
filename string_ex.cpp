@@ -1,5 +1,12 @@
 #include "string_ex.h"
 #include <algorithm>
+#include <assert.h>
+#include <stdarg.h>
+#include <stdio.h>
+
+#if _MSC_VER
+#define snprintf _snprintf
+#endif
 
 vector<string> string_ex::split(const string &s, const string &seperator)
 {
@@ -46,7 +53,8 @@ vector<string> string_ex::split(const string &s, const string &seperator)
 	return result;
 }
 
-string& join(const vector<string> vecStr,const string seperator )
+
+string& string_ex::join(const vector<string> vecStr,const string seperator )
 {
 	size_t vec_size = vecStr.size();
 	string join_str;
@@ -58,7 +66,7 @@ string& join(const vector<string> vecStr,const string seperator )
 	return join_str+vecStr[vec_size-1];
 }
 
-size_t findc(string &str, char c, size_t appear_count)
+size_t string_ex::findc(string &str, char c, size_t appear_count)
 {
 	if(appear_count==0)
 		return string::npos;
@@ -75,9 +83,7 @@ size_t findc(string &str, char c, size_t appear_count)
 	}
 	return string::npos;
 }
-
-
-size_t finds(string &str, string s, size_t appear_count)
+size_t string_ex::finds(string &str, string s, size_t appear_count)
 {
 	if(appear_count==0)
 		return string::npos;
