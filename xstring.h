@@ -45,13 +45,13 @@ namespace xstring{
 		return str;
 	}
 
-	string& join(const vector<string> vecStr,const string seperator );
+	string join(const vector<string> vecStr,const string seperator );
 
 	size_t findc(string &str, char c, size_t appear_count);
 
 	size_t finds(string &str, string s, size_t appear_count);
 
-	string& snprintfex(char *format,size_t buff_size,...);
+	string format(char *format,size_t buff_size,...);
 }
 
 #endif

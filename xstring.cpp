@@ -54,7 +54,7 @@ vector<string> xstring::split(const string &s, const string &seperator)
 }
 
 
-string& xstring::join(const vector<string> vecStr,const string seperator )
+string xstring::join(const vector<string> vecStr,const string seperator )
 {
 	size_t vec_size = vecStr.size();
 	string join_str;
@@ -70,7 +70,7 @@ size_t xstring::findc(string &str, char c, size_t appear_count)
 {
 	if(appear_count==0)
 		return string::npos;
-	for (int i = 0; i < str.size(); i++)
+	for (size_t i = 0; i < str.size(); i++)
 	{
 		if (str[i] == c)
 		{
@@ -83,6 +83,7 @@ size_t xstring::findc(string &str, char c, size_t appear_count)
 	}
 	return string::npos;
 }
+
 size_t xstring::finds(string &str, string s, size_t appear_count)
 {
 	if(appear_count==0)
@@ -98,7 +99,7 @@ size_t xstring::finds(string &str, string s, size_t appear_count)
 	return pos;
 }
 
-string &xstring::snprintfex(char *format,size_t buff_size,...)
+string xstring::format(char *format,size_t buff_size,...)
 {
 	assert(buff_size>0);
 	va_list va;
