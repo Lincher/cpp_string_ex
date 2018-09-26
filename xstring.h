@@ -1,5 +1,5 @@
-#ifndef STRING_EX_H
-#define STRING_EX_H
+#ifndef XSTRING_H
+#define XSTRING_H
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -8,7 +8,7 @@ using std::vector;
 using std::string;
 // using std::pair;
 
-namespace string_ex{
+namespace xstring{
 
 	vector<string> split(const string &s, const string &seperator);
 
